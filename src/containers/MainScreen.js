@@ -35,7 +35,8 @@ class MainScreen extends PureComponent {
 		name: '',
 		massage: '',
 		title: '',
-		body: ''
+		body: '',
+		currentPost: 'Post'
 	}
 
 	async componentWillMount() {
@@ -47,8 +48,8 @@ class MainScreen extends PureComponent {
 
 	_keyExtractor = (item, index) => item.id.toString();
 
-	_onPressItem = (id: number) => {
-		this.setState({selected: id});
+	_onPressItem = (id: number, name: string) => {
+		this.setState({selected: id, currentPost: name});
 	};
 
 	_handleDeletItem = () => {
@@ -119,7 +120,7 @@ class MainScreen extends PureComponent {
 								</View>}
 							ListHeaderComponent={
 								<View style={{flexDirection: 'row', justifyContent: 'space-between', margin: 5}}>
-									<Text>Posts</Text>
+									<Text>{this.state.currentPost}</Text>
 									<FAB image={"plus"}
 											 small
 											 style={{backgroundColor: 'green'}}

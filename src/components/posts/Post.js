@@ -28,7 +28,7 @@ class Post extends PureComponent {
 	}
 
 	handleItem = async () => {
-		this.props.onPressItem(this.props.id);
+		this.props.onPressItem(this.props.id, this.props.post.title);
 	}
 
 	getComments = async () => {
